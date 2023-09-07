@@ -1,0 +1,27 @@
+version: "3.7"
+
+services:
+  basic_service:
+    container_name: basic_service
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - ${SERVER_PORT}:${SERVER_PORT}
+      - 9229:9229
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: >
+      sh -c "yarn install &&
+        yarn start:debug"
+    env_file:
+      - .env
+  redis_gateway:
+    container_name: ${REDIS_HOST}
+    image: redis:latest
+    ports:
+      - '${REDIS_PORT}:${REDIS_PORT}'
+networks:
+  default:
+    name: ${DOCKER_NETWORK}
