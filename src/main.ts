@@ -54,8 +54,8 @@ async function bootstrap() {
   );
 
   const options = new DocumentBuilder()
-    .setTitle('basic Service')
-    .setDescription('basic services')
+    .setTitle('vignette Service')
+    .setDescription('vignette services')
     .setVersion('1.0')
     .build();
 

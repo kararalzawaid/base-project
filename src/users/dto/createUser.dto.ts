@@ -10,7 +10,7 @@ export class CreateUserDto {
   @IsString()
   @IsNotEmpty()
   @ApiProperty()
-  readonly username!: string;
+  readonly fullName!: string;
 
   @IsStrongPassword()
   @IsNotEmpty()
@@ -20,10 +20,5 @@ export class CreateUserDto {
   @IsOptional()
   @IsString()
   @ApiProperty()
-  readonly firstName?: string;
-
-  @IsOptional()
-  @IsString()
-  @ApiProperty()
-  readonly lastName?: string;
+  readonly phone?: string;
 }
