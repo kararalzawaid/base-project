@@ -1,17 +1,8 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiProperty, PartialType } from '@nestjs/swagger';
 import { IsString, IsNotEmpty, IsEmail, IsBoolean } from 'class-validator';
+import { SimpleLoginDto } from './simple-login.dto';
 
-export class LoginInputDto {
-  @IsEmail()
-  @IsNotEmpty()
-  @ApiProperty()
-  readonly email!: string;
-
-  @IsString()
-  @IsNotEmpty()
-  @ApiProperty()
-  readonly password!: string;
-
+export class LoginInputDto extends PartialType(SimpleLoginDto) {
   @IsBoolean()
   @IsNotEmpty()
   @ApiProperty()
